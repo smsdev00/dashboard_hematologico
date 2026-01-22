@@ -182,7 +182,7 @@ function App() {
   const chartData = useMemo(() => {
     return estudios.map(estudio => ({
       fecha: estudio.fecha,
-      fechaDisplay: new Date(estudio.fecha).toLocaleDateString('es-AR', { month: 'short', year: '2-digit' }),
+      fechaDisplay: new Date(estudio.fecha + 'T00:00:00').toLocaleDateString('es-AR', { month: 'short', year: '2-digit' }),
       eritrocitos: estudio.serie_roja.eritrocitos,
       hemoglobina: estudio.serie_roja.hemoglobina,
       hematocrito: estudio.serie_roja.hematocrito,
@@ -428,7 +428,7 @@ function App() {
           className="mb-8"
         >
           <h2 className={`text-xl font-semibold mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            Último Estudio - {new Date(estudios[estudios.length - 1].fecha).toLocaleDateString('es-AR', {
+            Último Estudio - {new Date(estudios[estudios.length - 1].fecha + 'T00:00:00').toLocaleDateString('es-AR', {
               year: 'numeric', month: 'long', day: 'numeric'
             })}
           </h2>
@@ -591,7 +591,7 @@ function App() {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div>
                         <p className={`font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                          {new Date(estudio.fecha).toLocaleDateString('es-AR', {
+                          {new Date(estudio.fecha + 'T00:00:00').toLocaleDateString('es-AR', {
                             year: 'numeric', month: 'long', day: 'numeric'
                           })}
                         </p>
